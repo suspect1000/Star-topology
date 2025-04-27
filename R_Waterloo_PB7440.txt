@@ -1,0 +1,99 @@
+R_Waterloo_PB7440#show running-config
+Building configuration...
+
+Current configuration : 1123 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R_Waterloo_PB7440
+!
+!
+!
+enable secret level 7 5 $1$mERr$t1QLsPeIFHeNWpJ1vFgI9/
+enable password 7 0812494D1B1C114247
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username PB7440 password 7 0812494D1B1C114247
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524RO0V-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name itns.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 10.200.72.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 172.16.71.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ ip address 10.200.73.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+!
+router rip
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C This is the motd for R_Waterloo_PB7440 ^C
+!
+!
+!
+!
+line con 0
+ password 7 0812494D1B1C114247
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0812494D1B1C114247
+ login
+line vty 5 15
+ password 7 0812494D1B1C114247
+ login
+!
+!
+!
+end
